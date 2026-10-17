@@ -1,12 +1,4 @@
-# NTC Fit (plesetan Nike Training Club)
-
-## Anggota
-| Nama | NIM |
-|---|---|
-| (isi) | (isi) |
-
-Aplikasi asli: **Nike Training Club** -> plesetan: **NTC Fit**
-
+# NTC Fit
 ## Struktur
 - `app/`       : Flutter (salin folder proyek Flutter ke sini)
 - `backend/`   : REST API (Node.js + Express + MySQL)
