@@ -1,0 +1,57 @@
+### Cek database
+GET http://localhost:3000/health
+
+### Daftar latihan
+GET http://localhost:3000/workouts
+
+### Kategori
+GET http://localhost:3000/categories
+
+### 1. Minta kode verifikasi
+POST http://localhost:3000/auth/send-code
+Content-Type: application/json
+
+{ "email": "tes@mail.com" }
+
+### 2. Daftar (ganti 123456 dengan devCode dari langkah 1)
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "email": "tes@mail.com",
+  "code": "982868",
+  "firstName": "Tes",
+  "lastName": "User",
+  "birthDate": "2000-01-31",
+  "marketingOptIn": false
+}
+
+### 3. Profil (ganti TOKEN_DI_SINI dengan token dari langkah 2)
+GET http://localhost:3000/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzQG1haWwuY29tIiwiaWF0IjoxNzkyMjEwNzI2LCJleHAiOjE3OTQ4MDI3MjZ9.yazlC85n-Btr2HPKD6-UH00HhIsYsvnkEAi6msXq7LU
+
+### Simpan latihan 1
+POST http://localhost:3000/saved/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzQG1haWwuY29tIiwiaWF0IjoxNzkyMjEwNzI2LCJleHAiOjE3OTQ4MDI3MjZ9.yazlC85n-Btr2HPKD6-UH00HhIsYsvnkEAi6msXq7LU
+
+### Lihat yang disimpan
+GET http://localhost:3000/saved
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzQG1haWwuY29tIiwiaWF0IjoxNzkyMjEwNzI2LCJleHAiOjE3OTQ4MDI3MjZ9.yazlC85n-Btr2HPKD6-UH00HhIsYsvnkEAi6msXq7LU
+
+### Catat latihan selesai
+POST http://localhost:3000/history
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzQG1haWwuY29tIiwiaWF0IjoxNzkyMjEwNzI2LCJleHAiOjE3OTQ4MDI3MjZ9.yazlC85n-Btr2HPKD6-UH00HhIsYsvnkEAi6msXq7LU
+
+{ "workoutId": "1", "seconds": 600 }
+
+### Riwayat
+GET http://localhost:3000/history
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzQG1haWwuY29tIiwiaWF0IjoxNzkyMjEwNzI2LCJleHAiOjE3OTQ4MDI3MjZ9.yazlC85n-Btr2HPKD6-UH00HhIsYsvnkEAi6msXq7LU
+
+### Onboarding
+PUT http://localhost:3000/me/onboarding
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzQG1haWwuY29tIiwiaWF0IjoxNzkyMjEwNzI2LCJleHAiOjE3OTQ4MDI3MjZ9.yazlC85n-Btr2HPKD6-UH00HhIsYsvnkEAi6msXq7LU
+
+{ "gender": "female", "weeklyFrequency": "medium" }
