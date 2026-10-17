@@ -1,4 +1,4 @@
--- NTC Fit - skema database (MySQL / MariaDB)
+-- NTC Fit - skema database (MySQL)
 CREATE DATABASE IF NOT EXISTS ntcfit CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE ntcfit;
 
@@ -43,7 +43,7 @@ CREATE TABLE categories (
   id             INT AUTO_INCREMENT PRIMARY KEY,
   name           VARCHAR(60)  NOT NULL UNIQUE,
   image          VARCHAR(255) NOT NULL,
-  fallback_color VARCHAR(9)   NOT NULL,   -- mis. #5E5B58
+  fallback_color VARCHAR(9)   NOT NULL,  
   sort_order     INT NOT NULL DEFAULT 0
 );
 
@@ -56,7 +56,7 @@ CREATE TABLE workouts (
   minutes     INT NOT NULL,
   image       VARCHAR(255) NOT NULL,
   is_new      TINYINT(1) NOT NULL DEFAULT 0,
-  is_hybrid   TINYINT(1) NOT NULL DEFAULT 0,   -- tampil di "Mode Hibrid"
+  is_hybrid   TINYINT(1) NOT NULL DEFAULT 0,   
   description TEXT NOT NULL
 );
 
@@ -68,7 +68,7 @@ CREATE TABLE workout_categories (
   FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
 );
 
--- Gerakan milik satu latihan. Isi reps ATAU seconds.
+-- Gerakan milik satu latihan.
 CREATE TABLE workout_exercises (
   id         INT AUTO_INCREMENT PRIMARY KEY,
   workout_id INT NOT NULL,
@@ -116,7 +116,7 @@ CREATE TABLE programs (
 CREATE TABLE trophies (
   id         INT AUTO_INCREMENT PRIMARY KEY,
   name       VARCHAR(120) NOT NULL,
-  icon       VARCHAR(60)  NOT NULL,                 -- nama Icons.* di Flutter
+  icon       VARCHAR(60)  NOT NULL,                 
   shape      ENUM('diamond','circle') NOT NULL DEFAULT 'circle',
   sort_order INT NOT NULL DEFAULT 0
 );
